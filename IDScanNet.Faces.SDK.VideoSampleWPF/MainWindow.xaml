@@ -1,0 +1,74 @@
+﻿<Window x:Class="VideoSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Face Tracking WPF Sample" Height="600" Width="1050" Loaded="OnLoaded" Closing="OnClosing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="VideoSourceFrameImage" Stretch="Fill"></Image>
+        <Canvas Grid.Column="0" x:Name="Canvas" Background="{x:Null}" IsHitTestVisible="true" />
+        <Image x:Name="Draws" Stretch="Fill"></Image>
+        <TextBlock x:Name="ProcessingTimeText" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="WhiteSmoke">
+            <TextBlock.Effect>
+                <DropShadowEffect RenderingBias="Quality" BlurRadius="2" ShadowDepth="2"></DropShadowEffect>
+            </TextBlock.Effect>
+        </TextBlock>
+        <StackPanel Grid.Column="1" Margin="4,0,4,0">
+            
+            <StackPanel x:Name="InitPanel">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20" Margin="0,0,10,0">License</TextBlock>
+                    <Button x:Name="SelectLicButton" Click="SelectLicFile">
+                        Select
+                    </Button>
+                </StackPanel>
+                <TextBlock x:Name="LicensePath" Margin="0,4,0,0"/>
+                
+                
+                <Button x:Name="InitButton" Click="OnInitButton">
+                    Initialize
+                </Button>
+            </StackPanel>
+
+            <TextBlock x:Name="ReadyText" FontSize="20">Initializing...</TextBlock>
+            
+            <StackPanel x:Name="ButtonsPanel" IsEnabled="False">
+                
+                <TextBlock FontSize="20" Margin="0,20,0,4">Video</TextBlock>
+            
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,4,0,30">
+                    <Button x:Name="StartVideo" Click="StartVideo_OnClick" Width="80">
+                        Start
+                    </Button>
+                    <Button x:Name="StopVideo" Margin="24,0,0,0" Click="StopVideo_OnClick" Width="80">
+                        Stop
+                    </Button>
+                </StackPanel>
+                
+                <Button Margin="0,4,0,4" Click="EnrollFileButton_Click">
+                    Enroll Face (File)
+                </Button>
+                <Button Margin="0,4,0,4" Click="EnrollFacesFiles_OnClick">
+                    Enroll Faces (Files)
+                </Button>
+                <Button Margin="0,4,0,4" Click="MatchButton_Click">Match (File)</Button>
+                <Button Margin="0,4,0,4" Click="CompareButton_Click">Compare (Files)</Button>
+                <Button Margin="0,4,0,4" Click="ResetButton_Click">Reset all enrollments</Button>
+            </StackPanel>
+            <TextBlock Margin="0,16,0,4" FontSize="20">Options:</TextBlock>
+            <StackPanel>
+                <CheckBox x:Name="EmotionsCheckbox" Content="Analyze Emotions" Click="EmotionsCheckbox_OnChecked"></CheckBox>
+                <CheckBox x:Name="AgeCheckbox" Content="Analyze Age and Gender" Click="AgeCheckbox_OnChecked"></CheckBox>
+            </StackPanel>
+                        
+        </StackPanel>
+        <Border Width="120" Height="120" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Image x:Name="IdentifiedImage" ></Image>
+        </Border>        
+    </Grid>
+</Window>

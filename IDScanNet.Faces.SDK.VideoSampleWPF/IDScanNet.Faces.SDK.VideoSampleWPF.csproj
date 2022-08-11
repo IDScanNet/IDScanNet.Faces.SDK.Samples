@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+
+    <PlatformTarget>x64</PlatformTarget>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="IDScanNet.Faces.SDK" Version="5.2208.10.12" />
+    <PackageReference Include="IDScanNet.Faces.SDK.runtimes.m1.tf.win.x64" Version="5.2208.8.3" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+    <PackageReference Include="IDScanNet.Faces.SDK.data.m1.realtime" Version="5.2208.8.2" />
+    <PackageReference Include="IDScanNet.Faces.SDK.data.m1.common" Version="5.2208.8.2" />
+    <PackageReference Include="IDScanNet.Faces.SDK.runtimes.m1.win.x64" Version="5.2208.8.3" />
+    <PackageReference Include="OpenCvSharp4.Windows" Version="4.6.0.20220608" />
+  </ItemGroup>
+
+</Project>
